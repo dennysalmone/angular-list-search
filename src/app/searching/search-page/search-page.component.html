@@ -1,0 +1,16 @@
+<div class="page-container">
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Found your animal</mat-label>
+        <input (input)="onInput()" matInput [(ngModel)]="inputValue" matInput placeholder="Search">
+    </mat-form-field>
+</div>
+
+<div class="overlay">
+    <ng-container *ngFor="let animal of animals">
+        <div class="block">
+            <h3>{{animal.name}}</h3> 
+            <img class="small-img" [src]="animal.imageUrl">
+            <span>{{animal.description | limitSymbols:250}}</span> 
+        </div>
+    </ng-container>
+</div>

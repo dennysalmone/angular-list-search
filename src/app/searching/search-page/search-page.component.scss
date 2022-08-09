@@ -1,0 +1,35 @@
+@import "src/assets/variables";
+
+.margin {
+    @include margin-element();
+    @include main-fonts();
+}
+
+.small-img {
+    width: 95%;
+}
+
+.full-width {
+    width: 75%;
+}
+
+.page-container {
+    display: flex;
+    justify-content: center;
+}
+
+.overlay {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .block {
+        border: 1px solid #00000025;
+        border-radius: 6px;
+        max-width: 23%;
+        padding: 6px;
+        margin: 6px;
+    }
+
+}
+
+
