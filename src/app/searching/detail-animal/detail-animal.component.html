@@ -1,0 +1,15 @@
+<button [routerLink]="['/search']" class="button" mat-flat-button color="primary"><mat-icon aria-hidden="false" fontIcon="keyboard_return"></mat-icon> Back to list</button>    
+
+<div class="flex-container">
+    <div class="block" *ngIf="animal">
+        <h1 class="flex-container">{{animal.name}}</h1> 
+        <div class="photo-wrap">
+            <img class="small-img" [src]="animal.imageUrl">
+        </div>
+        <p>{{animal.description}}</p> 
+    </div>
+</div>
+
+<div *ngIf="notLoaded" class="spinner">
+    <mat-spinner></mat-spinner>
+</div>

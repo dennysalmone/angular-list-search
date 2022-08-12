@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchPageComponent } from './search-page/search-page.component';
+import { DetailAnimalComponent } from './detail-animal/detail-animal.component';
+import { HomepageAnimalComponent } from './home-page-animal/home-page-animal.component';
 
 const routes: Routes = [
   {
-      path: "", component: SearchPageComponent,
+    path: "search", component: HomepageAnimalComponent,
+  },
+  {
+    path: "animal/:id", component: DetailAnimalComponent,
+  },
+  {
+    path: "**", redirectTo: "search",
   },
 ];
 

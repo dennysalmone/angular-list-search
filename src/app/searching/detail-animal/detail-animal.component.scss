@@ -1,0 +1,30 @@
+@import "src/assets/variables";
+
+.button {
+    margin: 4px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.block {
+    width: 800px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: $shadows;
+}
+
+.small-img {
+    width: 80%;
+    border-radius: 6px;
+}
+
+.photo-wrap {
+    text-align: center;
+}
+
+.spinner {
+    @include mat-spinner();
+}

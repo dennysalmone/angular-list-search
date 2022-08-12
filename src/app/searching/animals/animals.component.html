@@ -1,0 +1,14 @@
+<div class="overlay">
+    <ng-container *ngFor="let animal of animals">
+        <div class="block">
+            <h3>{{animal.name}}</h3> 
+            <img class="small-img" [src]="animal.imageUrl">
+            <p>{{animal.description | limitSymbols:250}}</p> 
+            <button [routerLink]="['/animal', animal.id]" mat-stroked-button color="primary">Read more</button>
+        </div>
+    </ng-container>
+</div>
+
+<div *ngIf="animals && !animals.length" class="overlay">
+    <h3>No animals found with query "{{query}}"</h3>
+</div>

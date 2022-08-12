@@ -4,12 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'search'
+    loadChildren: () => import('src/app/searching/searching.module').then(m => m.SearchingModule)
   },
   {
-    path: 'search',
-    loadChildren: () => import('src/app/searching/searching.module').then(m => m.SearchingModule)
+    path: "**", redirectTo: "",
   },
 ]
 

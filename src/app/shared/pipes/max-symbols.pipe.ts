@@ -6,12 +6,12 @@ import {Pipe, PipeTransform} from "@angular/core";
 
 export class LimitSymbols implements PipeTransform {
 
-  transform(string: string, limit: number) {
+  transform(text: string, limit: number) {
 
-    if (string.length > limit) {
-      return string.slice(0, limit) + " ...";
+    if (text.length > limit) {
+      return text.slice(0, limit) + " ...";
     }
-    return string;
+    return text;
 
   }
 }

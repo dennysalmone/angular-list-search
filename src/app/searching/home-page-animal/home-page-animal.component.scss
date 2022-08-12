@@ -1,0 +1,23 @@
+@import "src/assets/variables";
+
+.button {
+    @include margin-element();
+}
+
+.margin {
+    @include margin-element();
+    @include main-fonts();
+}
+
+.full-width {
+    width: 75%;
+}
+
+.page-container {
+    display: flex;
+    justify-content: center;
+}
+
+.spinner {
+    @include mat-spinner();
+}

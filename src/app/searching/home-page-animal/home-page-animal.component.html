@@ -1,0 +1,14 @@
+<form [formGroup]="form">
+    <app-search formControlName="name"></app-search>
+</form>
+
+<div class="page-container">
+    <button (click)="previousPage()" [disabled]="pageCounter<=0" class="button" mat-flat-button color="primary">Previous Page</button>
+    <button (click)="nextPage()" [disabled]="pageCounter >= totalPages" class="button" mat-flat-button color="primary">Next Page</button>    
+</div>
+
+<app-animals [query]="form.value.name" [animals]="animals"></app-animals>
+
+<div *ngIf="notLoaded" class="spinner">
+    <mat-spinner></mat-spinner>
+</div>

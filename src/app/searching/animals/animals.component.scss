@@ -1,0 +1,19 @@
+@import "src/assets/variables";
+
+.small-img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.overlay {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .block {
+        box-shadow: $shadows;
+        border-radius: 12px;
+        max-width: 25%;
+        padding: 12px;
+        margin: 12px;
+    }
+}

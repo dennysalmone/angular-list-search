@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable, Subject, tap } from 'rxjs';
+import { map, Observable, delay } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 import { IAnimal } from '../../interfaces/interfaces';
 
@@ -12,17 +13,30 @@ export class MockRequestService {
   constructor(private http: HttpClient) {
   }
 
-  getAnimals(): Observable<IAnimal[]> {
+  searchAnimalsById(id: number): Observable<IAnimal> {
     return this.http.get<IAnimal[]>(`${environment.url}`)
+    .pipe(
+      delay(200),
+      map(animals => (
+        animals
+        .find(animal => animal.id === id)
+      ))
+    )
   }
 
-  seachAnimals(text: string): Observable<IAnimal[]> {
-    console.log('seachAnimals')
-    if(text.length < 1) {
-      console.log('empty')
-      return this.getAnimals();
-    }
-    return this.http.get<IAnimal[]>(`${environment.url}/?name=${text}`)
+  searchAnimals(text: string = '', page: number, limit: number): Observable<{amount: number, data: IAnimal[]}> {
+    return this.http.get<IAnimal[]>(`${environment.url}`)
+      .pipe(
+        delay(200),
+        map(animals => ({
+          data: animals
+          .filter(animal => animal.name.toLowerCase().includes(text))
+          .slice(page * limit, page * limit + limit),
+          amount: animals
+          .filter(animal => animal.name.toLowerCase().includes(text))
+          .length
+        }))
+      )
   }
 
 }
